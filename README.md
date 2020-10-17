@@ -5,5 +5,6 @@
 4. Material Angular
 5. Ability to change API Key
 6. Basic Git Flow
+7. Easy to expand / upgrade
 
 > Enjoy!
