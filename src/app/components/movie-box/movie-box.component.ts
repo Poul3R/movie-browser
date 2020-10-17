@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {MovieInterface} from '../shared/interfaces/movie.interface';
+import {MovieInterface} from '../../shared/interfaces/movie.interface';
 
 @Component({
   selector: 'app-movie-box',

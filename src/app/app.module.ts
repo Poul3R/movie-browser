@@ -4,15 +4,15 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SearchPanelComponent } from './search-panel/search-panel.component';
+import { SearchPanelComponent } from './components/search-panel/search-panel.component';
 import {SharedModule} from './shared/shared.module';
 import {ReactiveFormsModule} from '@angular/forms';
-import { PopularMoviesComponent } from './popular-movies/popular-movies.component';
-import { MovieBoxComponent } from './movie-box/movie-box.component';
+import { PopularMoviesComponent } from './components/popular-movies/popular-movies.component';
+import { MovieBoxComponent } from './components/movie-box/movie-box.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ApiKeyInterceptor} from './shared/interceptors/apiKey.interceptor';
-import { MovieDetailsComponent } from './movie-details/movie-details.component';
-import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
+import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
 
 @NgModule({
   declarations: [

@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {MovieInterface} from '../shared/interfaces/movie.interface';
-import {MovieService} from '../shared/services/movie.service';
-import {UtilsService} from '../shared/services/utils.service';
+import {MovieInterface} from '../../shared/interfaces/movie.interface';
+import {MovieService} from '../../shared/services/movie.service';
+import {UtilsService} from '../../shared/services/utils.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({

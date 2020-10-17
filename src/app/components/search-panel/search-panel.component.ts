@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {MovieService} from '../shared/services/movie.service';
+import {MovieService} from '../../shared/services/movie.service';
 
 @Component({
   selector: 'app-search-panel',
