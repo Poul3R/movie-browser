@@ -1,12 +1,12 @@
 <mat-card class="search">
   <mat-card-content>
     <h1 class="search__title">MOVIE BROWSER</h1>
-    <form [formGroup]="searchForm" class="form">
+    <form [formGroup]="searchForm" class="form" (ngSubmit)="onSearchMovie()">
       <div class="form__row">
         <mat-form-field appearance="outline" class="form__input--search">
           <mat-label>Title</mat-label>
-          <input matInput placeholder="Ex. Harry Potter" type="text" formControlName="search">
-          <mat-error *ngIf="searchForm.controls.search.hasError('required')">
+          <input matInput placeholder="Ex. Harry Potter" type="text" formControlName="t">
+          <mat-error *ngIf="searchForm.controls.t.hasError('required')">
             Enter movie title you want to search
           </mat-error>
         </mat-form-field>
@@ -19,7 +19,7 @@
       <div class="form__filters">
         <mat-form-field appearance="outline" class="form__input">
           <mat-label>Type</mat-label>
-          <mat-select>
+          <mat-select formControlName="type">
             <mat-option>---</mat-option>
             <mat-option *ngFor="let type of types" [value]="type.value">
               {{type.label}}
@@ -29,7 +29,7 @@
 
         <mat-form-field appearance="outline" class="form__input">
           <mat-label>Year</mat-label>
-          <mat-select>
+          <mat-select formControlName="y">
             <mat-option>---</mat-option>
             <mat-option *ngFor="let year of years" [value]="year">
               {{year}}

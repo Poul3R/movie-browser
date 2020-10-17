@@ -9,6 +9,8 @@ import {SharedModule} from './shared/shared.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import { PopularMoviesComponent } from './popular-movies/popular-movies.component';
 import { MovieBoxComponent } from './movie-box/movie-box.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {ApiKeyInterceptor} from './shared/interceptors/apiKey.interceptor';
 
 @NgModule({
   declarations: [
@@ -22,9 +24,12 @@ import { MovieBoxComponent } from './movie-box/movie-box.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
+    HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ApiKeyInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
