@@ -11,13 +11,17 @@ import { PopularMoviesComponent } from './popular-movies/popular-movies.componen
 import { MovieBoxComponent } from './movie-box/movie-box.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ApiKeyInterceptor} from './shared/interceptors/apiKey.interceptor';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchPanelComponent,
     PopularMoviesComponent,
-    MovieBoxComponent
+    MovieBoxComponent,
+    MovieDetailsComponent,
+    WelcomePageComponent
   ],
   imports: [
     BrowserModule,

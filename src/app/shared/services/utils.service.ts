@@ -6,7 +6,7 @@ import {throwError} from 'rxjs';
   providedIn: 'root'
 })
 export class UtilsService {
-  errorHandler(error: HttpErrorResponse) {
+  public errorHandler(error: HttpErrorResponse) {
     let errorMessage = '';
 
     switch (error.status) {
@@ -19,5 +19,11 @@ export class UtilsService {
     }
 
     return throwError(errorMessage);
+  }
+
+  public getRandomLetter(): string {
+    const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'w', 'z'];
+    const randInt = Math.floor(Math.random() * Math.floor(21));
+    return letters[randInt];
   }
 }

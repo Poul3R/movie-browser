@@ -14,3 +14,15 @@
   max-width: 1200px;
   margin: 0 auto;
 }
+
+@include tablet {
+  .app-wrapper {
+    padding: 30px;
+  }
+}
+
+@include desktop {
+  .app-wrapper {
+    padding: 50px;
+  }
+}

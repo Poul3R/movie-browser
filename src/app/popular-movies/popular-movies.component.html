@@ -1,3 +1,8 @@
-<div class="popular-wrapper">
-  <app-popular-movies></app-popular-movies>
+<div class="popular">
+  <h1 class="popular__title">Most popular today</h1>
+  <h3 class="popular__subtitle">Chosen by millions</h3>
+
+  <div class="popular__wrapper">
+    <app-movie-box [movie]="movie" *ngFor="let movie of popularMovies"></app-movie-box>
+  </div>
 </div>
