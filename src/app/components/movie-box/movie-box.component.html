@@ -9,7 +9,7 @@
       {{movie.Plot}}
     </p>
   </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>More</button>
+  <mat-card-actions class="movie-box__actions">
+    <a routerLink="/{{movie.imdbID}}" mat-button>More</a>
   </mat-card-actions>
 </mat-card>

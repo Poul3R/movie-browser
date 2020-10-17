@@ -1,1 +1,67 @@
-<p>movie-details works!</p>
+<mat-card class="details">
+  <mat-card-content>
+    <ng-container *ngIf="!movieDownloading && movie; else loadingSpinner">
+      <h1 class="details__title">{{movie.Title}}</h1>
+      <div class="details__columns">
+        <div class="column-left">
+          <div class="details__img">
+            <img [src]="movie.Poster" alt="{{movie.Title}}">
+          </div>
+          <div class="details__rates">
+            <div class="rate" *ngFor="let rate of movie.Ratings">
+              <div class="rate__source">{{rate.Source}}</div>
+              <div class="rate__value">{{rate.Value}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="column-right">
+          <div class="info">
+            <div class="info__title">Release</div>
+            <div class="info__value">{{movie.Released}}</div>
+          </div>
+          <div class="info">
+            <div class="info__title">Genre</div>
+            <div class="info__value">{{movie.Genre}}</div>
+          </div>
+
+          <div class="info">
+            <div class="info__title">Director</div>
+            <div class="info__value">{{movie.Director}}</div>
+          </div>
+
+          <div class="info">
+            <div class="info__title">Writer</div>
+            <div class="info__value">{{movie.Writer}}</div>
+          </div>
+          <div class="info">
+            <div class="info__title">Language</div>
+            <div class="info__value">{{movie.Language}}</div>
+          </div>
+
+          <div class="info">
+            <div class="info__title">Country</div>
+            <div class="info__value">{{movie.Country}}</div>
+          </div>
+
+          <div class="info">
+            <div class="info__title">Awards</div>
+            <div class="info__value">{{movie.Awards}}</div>
+          </div>
+
+          <div class="details__plot">
+            {{movie.Plot}}
+          </div>
+
+          <a routerLink="/" mat-raised-button color="warn" class="details__home">
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+          </a>
+        </div>
+      </div>
+    </ng-container>
+  </mat-card-content>
+</mat-card>
+
+<ng-template #loadingSpinner>
+  <app-loading-spinner></app-loading-spinner>
+</ng-template>

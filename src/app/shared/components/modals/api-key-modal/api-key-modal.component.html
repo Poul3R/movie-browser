@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Change API Key</h1>
+<div mat-dialog-content class="dialog-body">
+  <form [formGroup]="form" class="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline">
+      <mat-label>API Key</mat-label>
+      <input matInput type="text" formControlName="apiKey">
+      <mat-hint>You would not be able to restore previous key</mat-hint>
+      <mat-error *ngIf="form.controls.apiKey.hasError('required')">
+        Enter movie title you want to search
+      </mat-error>
+    </mat-form-field>
+    <button mat-raised-button class="form__button">Submit</button>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Close</button>
+</div>

@@ -1,0 +1,150 @@
+@import "../../shared/style/config";
+
+.details {
+  &__title {
+    text-align: center;
+    font-size: 26px;
+  }
+
+  &__columns {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  &__img {
+    width: 100%;
+    margin: 0 auto;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__plot {
+    margin-top: 30px;
+  }
+
+  &__home {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    span {
+      margin-left: 5px;
+    }
+  }
+}
+
+.column-left {
+  margin-bottom: 30px;
+}
+
+.column-right {
+  position: relative;
+  padding-bottom: 50px;
+}
+
+.rate,
+.info {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 7px;
+
+  &__source {
+    color: $subtitle;
+  }
+
+  &__title {
+    color: $subtitle;
+    min-width: 60px;
+  }
+
+  &__value {
+    font-weight: 600;
+    text-align: right;
+    flex: 1 1 auto;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+@include smartphone {
+  .details {
+    &__img {
+      max-width: 280px;
+    }
+  }
+}
+
+@include tablet {
+  .details {
+    &__title {
+      text-align: right;
+      font-size: 29px;
+    }
+
+    &__columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &__img {
+      max-width: unset;
+      margin-bottom: 15px;
+    }
+
+    &__plot {
+      font-size: 16px;
+    }
+  }
+
+  .column-left {
+    margin-bottom: 0;
+  }
+
+  .column-right {
+    padding-left: 16px;
+  }
+
+  .info {
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    font-size: 16px;
+    &__title {
+      color: $subtitle;
+      min-width: 90px;
+
+    }
+
+    &__value {
+      font-weight: 600;
+      text-align: left;
+      flex: 1 1 auto;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .rate {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+}
+
+@include desktop {
+  .details {
+    &__title {
+      font-size: 40px;
+    }
+  }
+
+  .column-right {
+    padding-right: 20px;
+    padding-left: 36px;
+  }
+}

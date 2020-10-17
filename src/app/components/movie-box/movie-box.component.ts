@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {MovieInterface} from '../../shared/interfaces/movie.interface';
 
 @Component({
@@ -6,12 +6,6 @@ import {MovieInterface} from '../../shared/interfaces/movie.interface';
   templateUrl: './movie-box.component.html',
   styleUrls: ['./movie-box.component.scss']
 })
-export class MovieBoxComponent implements OnInit {
+export class MovieBoxComponent {
   @Input() movie: MovieInterface;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

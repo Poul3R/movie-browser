@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {MovieService} from '../../shared/services/movie.service';
+import {Router} from '@angular/router';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import {InfoModalComponent} from '../../shared/components/modals/info-modal/info-modal.component';
 
 @Component({
   selector: 'app-search-panel',
@@ -17,7 +20,7 @@ export class SearchPanelComponent implements OnInit {
 
   years: number[] = [];
 
-  constructor(private movieService: MovieService) {
+  constructor(private movieService: MovieService, private router: Router, private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -32,14 +35,20 @@ export class SearchPanelComponent implements OnInit {
     }
   }
 
-  onSearchMovie() {
+  public onSearchMovie(): void {
     this.searchForm.markAllAsTouched();
 
     if (this.searchForm.valid) {
       this.movieService.getMovie(this.searchForm.value).subscribe(response => {
-        console.log(response);
+
+        try {
+          this.router.navigate([response.imdbID]);
+        } catch (err) {
+          this.dialog.open(InfoModalComponent, {data: 'No content'});
+        }
+
       }, error => {
-        console.log(error);
+        this.dialog.open(InfoModalComponent, {data: error});
       });
     }
   }

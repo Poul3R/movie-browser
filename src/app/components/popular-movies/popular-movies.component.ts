@@ -1,8 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MovieInterface} from '../../shared/interfaces/movie.interface';
 import {MovieService} from '../../shared/services/movie.service';
 import {UtilsService} from '../../shared/services/utils.service';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatDialog} from '@angular/material/dialog';
+import {InfoModalComponent} from '../../shared/components/modals/info-modal/info-modal.component';
 
 @Component({
   selector: 'app-popular-movies',
@@ -15,16 +16,17 @@ export class PopularMoviesComponent implements OnInit {
   constructor(
     private movieService: MovieService,
     private utilsService: UtilsService,
-    ) {
+    public dialog: MatDialog
+  ) {
   }
 
   ngOnInit(): void {
-    // 7
-    for (let i = 0; i <= 3; i++) {
+    for (let i = 0; i <= 7; i++) {
       this.movieService.getMovie({t: this.utilsService.getRandomLetter()}).subscribe(movie => {
         this.popularMovies.push(movie);
       }, error => {
-        // this.snackBar.open(error, 'X', {duration: 3000});
+        this.dialog.open(InfoModalComponent, {data: error});
+        return;
       });
     }
   }
